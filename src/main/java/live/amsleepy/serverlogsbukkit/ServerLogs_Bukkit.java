@@ -54,6 +54,7 @@ public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
         PluginCommand cmd = getCommand("serverlogs");
         if (cmd != null) {
             cmd.setExecutor(commandExecutor);
+            cmd.setTabCompleter(commandExecutor);
         } else {
             getLogger().severe("Command 'serverlogs' is not defined in plugin.yml");
         }

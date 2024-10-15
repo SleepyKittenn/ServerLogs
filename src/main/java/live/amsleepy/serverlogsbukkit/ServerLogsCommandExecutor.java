@@ -5,9 +5,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
-public class ServerLogsCommandExecutor implements CommandExecutor {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ServerLogsCommandExecutor implements CommandExecutor, TabCompleter {
 
     private final ServerLogs_Bukkit plugin;
     private final String prefix = ChatColor.DARK_PURPLE + "[ServerLogs] " + ChatColor.GOLD;
@@ -31,5 +36,17 @@ public class ServerLogsCommandExecutor implements CommandExecutor {
             }
         }
         return false;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            List<String> completions = new ArrayList<>();
+            if ("reload".startsWith(args[0].toLowerCase())) {
+                completions.add("reload");
+            }
+            return completions;
+        }
+        return Collections.emptyList();
     }
 }
