@@ -1,9 +1,9 @@
 # ServerLogs-Bukkit
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
 ![API-Version](https://img.shields.io/badge/api--version-1.21-lightgrey.svg)
 
-ServerLogs-Bukkit is a Minecraft plugin designed to log various player activities on your server. It records events like player joins, quits, chat messages, commands, and game mode changes. Additionally, it supports sending logs to a specified webhook at configurable intervals.
+ServerLogs-Bukkit is a Minecraft plugin designed to log various player activities on your server. It records events like player joins, quits, chat messages, commands, and game mode changes. Additionally, it supports sending logs to a specified webhook at configurable intervals and supports log file rotation.
 
 ## Features
 
@@ -13,6 +13,8 @@ ServerLogs-Bukkit is a Minecraft plugin designed to log various player activitie
 - **Game Mode Change Logging:** Log when players change their game mode.
 - **Webhook Integration:** Send logs to a specified webhook URL at defined intervals.
 - **Configurable Logging:** Easily configure which actions to log and for which players.
+- **IP Anonymization:** Option to hide players' IP addresses in the logs.
+- **Log File Rotation:** Automatically rotate log files daily to manage file sizes.
 
 ## Installation
 
@@ -24,7 +26,7 @@ ServerLogs-Bukkit is a Minecraft plugin designed to log various player activitie
 
 ## Configuration
 
-The main configuration file `config.yml` allows you to customize the logging behavior and webhook settings:
+The main configuration file `config.yml` allows you to customize the logging behavior, webhook settings, and privacy options:
 
 ```yaml
 # Webhook configuration
@@ -53,17 +55,22 @@ log:
   command: true
   # Log when players change their game mode
   gamemode: true
+
+# Privacy settings
+# If true, hides players' IP addresses in the logs
+privacy:
+  anonymizeIP: true
 ```
 
 ## Commands
 
 - **/serverlogs reload**: Reload the ServerLogs plugin configuration.
-  - **Permission**: `serverlogs.reload`
+    - **Permission**: `serverlogs.reload`
 
 ## Permissions
 
 - **serverlogs.reload**: Allows the player to reload the ServerLogs plugin configuration.
-  - **Default**: `op`
+    - **Default**: `op`
 
 ## Development
 
