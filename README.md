@@ -1,7 +1,7 @@
 # ServerLogs-Bukkit
 
-![Java](https://img.shields.io/badge/Java-21-blue) 
-![Bukkit](https://img.shields.io/badge/Bukkit-Api%201.21-yellow)
+![Java](https://img.shields.io/badge/Java-17-blue) 
+![Bukkit](https://img.shields.io/badge/Bukkit-Api%201.13-yellow)
 ![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
 ![API-Version](https://img.shields.io/badge/api--version-1.21-lightgrey.svg)
 
