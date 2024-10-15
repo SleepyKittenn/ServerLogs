@@ -66,7 +66,8 @@ public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
             }
         }.runTaskTimer(this, interval, interval);
 
-        getLogger().info(prefix + " ServerLogs-Bukkit enabled, made by sleepy.");
+        String pluginVersion = getDescription().getVersion();
+        getLogger().info(prefix + "ServerLogs-Bukkit v" + pluginVersion + " enabled, made by sleepy.");
     }
 
     @Override
