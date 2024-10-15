@@ -1,0 +1,14 @@
+name: ServerLogs
+main: live.amsleepy.serverlogsbukkit.ServerLogs_Bukkit
+version: 1.0.0
+api-version: 1.21
+description: Logs various player activities.
+author: sleepy
+commands:
+  serverlogs:
+    description: Reload the ServerLogs plugin configuration.
+    usage: /serverlogs reload
+permissions:
+  serverlogs.reload:
+    description: Allows the player to reload the ServerLogs plugin configuration.
+    default: op

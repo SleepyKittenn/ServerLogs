@@ -1,0 +1,26 @@
+# Webhook configuration
+webhook:
+  # URL of the webhook to where logs will be sent
+  url: "your_webhook_url_here"
+  # Interval (in seconds) at which the logs will be sent to the webhook
+  interval: 60 # interval in seconds
+
+# Logging configuration
+# If true, logs activities of all players. If false, only logs activities of specific players
+logAllPlayers: true
+# List of specific players whose activities should be logged. Works only if logAllPlayers is set to false
+specificPlayers:
+  - examplePlayer # Example player username
+
+# Categories of activities to log
+log:
+  # Log when players join the server
+  join: true
+  # Log when players leave the server
+  leave: true
+  # Log players' chat messages
+  chat: true
+  # Log when players issue commands
+  command: true
+  # Log when players change their game mode
+  gamemode: true
