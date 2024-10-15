@@ -19,7 +19,7 @@ ServerLogs-Bukkit is a Minecraft plugin designed to log various player activitie
 
 ## Installation
 
-1. **Download** the latest version of the plugin from the [releases](https://github.com/your-username/ServerLogs/releases) page.
+1. **Download** the latest version of the plugin from the [releases](https://github.com/SleepyKittenn/ServerLogs/releases) page.
 2. **Place** the `ServerLogs-Bukkit.jar` file into your server's `plugins` directory.
 3. **Start** the server to generate the default configuration files.
 4. **Edit** the `config.yml` file in the `plugins/ServerLogs-Bukkit` directory to customize your settings.
