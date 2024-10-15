@@ -137,8 +137,9 @@ public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
         }
         logBuffer.add(logEntry);
 
-        String message = prefix + logEntry;
-        Bukkit.getConsoleSender().sendMessage(message);
+        // Updated: Removed logging to console
+        // String message = prefix + logEntry;
+        // Bukkit.getConsoleSender().sendMessage(message);
     }
 
     public synchronized void logCommand(String senderName, String command, String args, String response) {
@@ -153,8 +154,9 @@ public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
         }
         logBuffer.add(logEntry);
 
-        String message = prefix + logEntry;
-        Bukkit.getConsoleSender().sendMessage(message);
+        // Updated: Removed logging to console
+        // String message = prefix + logEntry;
+        // Bukkit.getConsoleSender().sendMessage(message);
     }
 
     private void sendLogsToWebhook() {
