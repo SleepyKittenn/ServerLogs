@@ -1,7 +1,7 @@
 # ServerLogs-Bukkit
 
 ![Java](https://img.shields.io/badge/Java-17-blue) 
-![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.1.0-yellow.svg)
 ![API-Version](https://img.shields.io/badge/api--version-1.13-lightgrey.svg)
 
 ServerLogs-Bukkit is a Minecraft plugin designed to log various player activities on your server. It records events like player joins, quits, chat messages, commands, and game mode changes. Additionally, it supports sending logs to a specified webhook at configurable intervals and supports log file rotation.
