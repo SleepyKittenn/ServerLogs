@@ -35,7 +35,7 @@ public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
     private File logDirectory;
     private File logFile;
     private final List<String> logBuffer = new ArrayList<>();
-    private final String prefix = ChatColor.DARK_PURPLE + "[ServerLogs] " + ChatColor.GOLD;
+    private final String prefix = ChatColor.DARK_PURPLE + "[ServerLogs] " + ChatColor.WHITE;
 
     @Override
     public void onEnable() {

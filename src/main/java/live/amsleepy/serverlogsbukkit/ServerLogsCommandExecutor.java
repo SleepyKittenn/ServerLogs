@@ -15,7 +15,7 @@ import java.util.List;
 public class ServerLogsCommandExecutor implements CommandExecutor, TabCompleter {
 
     private final ServerLogs_Bukkit plugin;
-    private final String prefix = ChatColor.DARK_PURPLE + "[ServerLogs] " + ChatColor.GOLD;
+    private final String prefix = ChatColor.DARK_PURPLE + "[ServerLogs] " + ChatColor.WHITE;
 
     public ServerLogsCommandExecutor(ServerLogs_Bukkit plugin) {
         this.plugin = plugin;
