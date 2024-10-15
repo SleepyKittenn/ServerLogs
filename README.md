@@ -96,7 +96,7 @@ Developed by **sleepy**.
 
 ## Support
 
-For any questions or issues, please open an issue on the [GitHub repository](https://github.com/your-username/ServerLogs-Bukkit/issues).
+For any questions or issues, please open an issue on the [GitHub repository](https://github.com/SleepyKittenn/ServerLogs/issues).
 
 ---
 
