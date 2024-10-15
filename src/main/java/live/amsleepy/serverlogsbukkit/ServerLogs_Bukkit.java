@@ -19,6 +19,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -31,6 +32,7 @@ import java.net.URL;
 public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
 
     public FileConfiguration config;
+    private File logDirectory;
     private File logFile;
     private final List<String> logBuffer = new ArrayList<>();
     private final String prefix = ChatColor.DARK_PURPLE + "[ServerLogs] " + ChatColor.GOLD;
@@ -40,18 +42,11 @@ public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
         saveDefaultConfig();
         config = getConfig();
 
-        File logDirectory = new File(getDataFolder(), "logs");
+        logDirectory = new File(getDataFolder(), "logs");
         if (!logDirectory.exists()) {
             logDirectory.mkdirs();
         }
-        logFile = new File(logDirectory, "ServerLogs.txt");
-        try {
-            if (!logFile.exists()) {
-                logFile.createNewFile();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        createNewLogFile();
 
         getServer().getPluginManager().registerEvents(this, this);
 
@@ -123,6 +118,8 @@ public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
     }
 
     private synchronized void log(Player player, String action) {
+        checkLogFileRotation();
+
         String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
         String ip = player.getAddress() != null ? player.getAddress().getAddress().getHostAddress() : "unknown";
         String username = player.getName();
@@ -142,6 +139,8 @@ public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
     }
 
     public synchronized void logCommand(String senderName, String command, String args, String response) {
+        checkLogFileRotation();
+
         String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
         String logEntry = String.format("%s - Command issued by %s: /%s %s; Response: %s", time, senderName, command, args, response);
         try (FileWriter writer = new FileWriter(logFile, true)) {
@@ -192,6 +191,27 @@ public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
             }
         } catch (Exception e) {
             getLogger().warning(prefix + " Failed to send logs to webhook! Error: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Method to check if a new log file needs to be created (daily rotation)
+    private void checkLogFileRotation() {
+        String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        if (logFile == null || !logFile.getName().contains(currentDate)) {
+            createNewLogFile();
+        }
+    }
+
+    // Method to create a new log file based on the current date
+    private void createNewLogFile() {
+        String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        logFile = new File(logDirectory, "ServerLogs-" + currentDate + ".txt");
+        try {
+            if (!logFile.exists()) {
+                logFile.createNewFile();
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
