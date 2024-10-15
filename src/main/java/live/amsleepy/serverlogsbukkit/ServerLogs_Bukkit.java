@@ -121,7 +121,8 @@ public final class ServerLogs_Bukkit extends JavaPlugin implements Listener {
         checkLogFileRotation();
 
         String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
-        String ip = player.getAddress() != null ? player.getAddress().getAddress().getHostAddress() : "unknown";
+        boolean hideIP = config.getBoolean("privacy.anonymizeIP", false);
+        String ip = hideIP ? "hidden" : (player.getAddress() != null ? player.getAddress().getAddress().getHostAddress() : "unknown");
         String username = player.getName();
         String world = player.getWorld().getName();
         String coords = player.getLocation().getBlockX() + ", " + player.getLocation().getBlockY() + ", " + player.getLocation().getBlockZ();

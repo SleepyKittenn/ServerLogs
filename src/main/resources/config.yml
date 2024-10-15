@@ -24,3 +24,7 @@ log:
   command: true
   # Log when players change their game mode
   gamemode: true
+
+# Privacy settings
+privacy:
+  anonymizeIP: true
